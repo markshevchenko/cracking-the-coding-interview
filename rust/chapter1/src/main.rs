@@ -1,5 +1,5 @@
 fn main() {
-    // Excercise 1.1
+    // 1.1
     assert_eq!(contains_duplicates(""), false);
     assert_eq!(contains_duplicates("abcdef"), false);
     assert_eq!(contains_duplicates("foo"), true);
@@ -9,9 +9,10 @@ fn main() {
     assert_eq!(contains_duplicates2("foo"), true);    
 }
 
-use std::collections::HashSet;
-
+// 1.1
 fn contains_duplicates(s: &str) -> bool {
+    use std::collections::HashSet;
+
     let mut characters = HashSet::new();
 
     for c in s.chars() {
