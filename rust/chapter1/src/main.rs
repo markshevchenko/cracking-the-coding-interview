@@ -12,6 +12,10 @@ fn main() {
     assert_eq!(are_permutations("abc", "bac"), true);
     assert_eq!(are_permutations("aab", "bab"), false);
     assert_eq!(are_permutations("to be", "not to be"), false);
+
+    // 1.3
+    assert_eq!(test_replace_spaces("oh, no!", "oh,%20no!"), true);
+    assert_eq!(test_replace_spaces("Mr John Smith", "Mr%20John%20Smith"), true);
 }
 
 // 1.1
@@ -57,4 +61,38 @@ fn sort_string(s: &str) -> String {
     v.sort();
 
     v.into_iter().collect()
+}
+
+// 1.3
+fn test_replace_spaces(source: &str, target: &str) -> bool {
+    let mut v = source.chars().collect::<Vec<_>>();
+    let source_length = source.len();
+    let spaces_count = source.chars()
+                             .filter(|&c| c == ' ')
+                             .count();
+
+    for _ in 0..spaces_count {
+        v.push(' ');
+        v.push(' ');
+    }
+
+    replace_spaces(&mut v, source_length);
+
+    let actual = v.into_iter().collect::<String>();
+
+    actual == target
+}
+
+fn replace_spaces(s: &mut Vec<char>, source_length: usize) {
+    for i in (0..source_length).rev() {
+        if s[i] == ' ' {
+            for j in (i + 1..s.len()).rev() {
+                s[j] = s[j - 2]
+            }
+
+            s[i] = '%';
+            s[i + 1] = '2';
+            s[i + 2] = '0';
+        }
+    }
 }
