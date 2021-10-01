@@ -6,7 +6,12 @@ fn main() {
 
     assert_eq!(contains_duplicates2(""), false);
     assert_eq!(contains_duplicates2("abcdef"), false);
-    assert_eq!(contains_duplicates2("foo"), true);    
+    assert_eq!(contains_duplicates2("foo"), true);
+
+    // 1.2
+    assert_eq!(are_permutations("abc", "bac"), true);
+    assert_eq!(are_permutations("aab", "bab"), false);
+    assert_eq!(are_permutations("to be", "not to be"), false);
 }
 
 // 1.1
@@ -39,4 +44,17 @@ fn contains_duplicates2(s: &str) -> bool {
     }
     
     false
+}
+
+// 1.2
+fn are_permutations(s1: &str, s2: &str) -> bool {
+    sort_string(s1) == sort_string(s2)
+}
+
+fn sort_string(s: &str) -> String {
+    let mut v = s.chars().collect::<Vec<_>>();
+    
+    v.sort();
+
+    v.into_iter().collect()
 }
