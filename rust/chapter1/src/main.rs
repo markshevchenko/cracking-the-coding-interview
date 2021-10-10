@@ -2,6 +2,7 @@ mod exercise_1_1;
 mod exercise_1_2;
 mod exercise_1_3;
 mod exercise_1_4;
+mod exercise_1_5;
 
 fn main() {
     println!("1.1 contains_duplicates(\"abcdef\") -> {}", exercise_1_1::contains_duplicates("abcdef"));
@@ -23,5 +24,11 @@ fn main() {
     }
 
     println!("1.4 is_permutation_of_palindrome(\"Tact Coa\") -> {}", exercise_1_4::is_permutation_of_palindrome("Tact Coa"));
+    println!();
+
+    println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"pale\", \"ple\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("pale", "ple"));
+    println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"palex\", \"pale\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("palex", "pale"));
+    println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"pale\", \"bale\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("pale", "bale"));
+    println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"pale\", \"bake\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("pale", "bake"));
     println!();
 }
