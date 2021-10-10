@@ -1,6 +1,7 @@
 mod exercise_1_1;
 mod exercise_1_2;
 mod exercise_1_3;
+mod exercise_1_4;
 
 fn main() {
     println!("1.1 contains_duplicates(\"abcdef\") -> {}", exercise_1_1::contains_duplicates("abcdef"));
@@ -20,4 +21,7 @@ fn main() {
         println!("1.3 after replace: spaces: {:?}", v);
         println!();
     }
+
+    println!("1.4 is_permutation_of_palindrome(\"Tact Coa\") -> {}", exercise_1_4::is_permutation_of_palindrome("Tact Coa"));
+    println!();
 }
