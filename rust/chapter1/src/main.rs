@@ -5,6 +5,7 @@ mod exercise_1_4;
 mod exercise_1_5;
 mod exercise_1_6;
 mod exercise_1_7;
+mod exercise_1_8;
 
 fn main() {
     println!("1.1 contains_duplicates(\"abcdef\") -> {}", exercise_1_1::contains_duplicates("abcdef"));
@@ -44,10 +45,12 @@ fn main() {
             vec![3u32, 4u32],
         ];
         println!("1.7 before rotate90:");
-        println!("{:?}", v);
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
         println!("1.7 after rotate90:");
         exercise_1_7::rotate90(&mut v);
-        println!("{:?}", v);
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
         println!();
 
         let mut v = vec![
@@ -56,10 +59,39 @@ fn main() {
             vec![7u32, 8u32, 9u32],
         ];
         println!("1.7 before rotate90:");
-        println!("{:?}", v);
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
+        println!("  {:?}", v[2]);
         println!("1.7 after rotate90:");
         exercise_1_7::rotate90(&mut v);
-        println!("{:?}", v);
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
+        println!("  {:?}", v[2]);
         println!();
+    }
+
+    {
+        let mut v = vec![
+            vec![11, 12, 13, 14, 15, 16, 17],
+            vec![21,  0, 23, 24, 25, 26, 27],
+            vec![31, 32, 33, 34, 35, 36, 37],
+            vec![41, 42, 43, 44, 0, 46, 47],
+            vec![51, 52, 53, 54, 55, 56, 57],
+        ];
+
+        println!("1.8 before zero_rows_and_columns_with_zero:");
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
+        println!("  {:?}", v[2]);
+        println!("  {:?}", v[3]);
+        println!("  {:?}", v[4]);
+        println!("1.8 after zero_rows_and_columns_with_zero:");
+        exercise_1_8::zero_rows_and_columns_with_zero(&mut v);
+        println!("  {:?}", v[0]);
+        println!("  {:?}", v[1]);
+        println!("  {:?}", v[2]);
+        println!("  {:?}", v[3]);
+        println!("  {:?}", v[4]);
+        println!("1.8 after zero_rows_and_columns_with_zero:");
     }
 }
