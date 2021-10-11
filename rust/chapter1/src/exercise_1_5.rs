@@ -1,4 +1,8 @@
 pub fn is_levenshtein_distance_equals_to_0_or_1(s1: &str, s2: &str) -> bool {
+    levenshtein_distance(s1, s2) < 2
+}
+
+fn levenshtein_distance(s1: &str, s2: &str) -> usize {
     let mut previous_row: Vec<usize> = (0..=s2.len()).collect();
 
     for (i, c1) in s1.chars().enumerate() {
@@ -15,7 +19,7 @@ pub fn is_levenshtein_distance_equals_to_0_or_1(s1: &str, s2: &str) -> bool {
         previous_row = current_row;
     }
 
-    previous_row[previous_row.len() - 1] < 2
+    previous_row[previous_row.len() - 1]
 }
 
 #[test]

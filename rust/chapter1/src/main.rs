@@ -3,6 +3,7 @@ mod exercise_1_2;
 mod exercise_1_3;
 mod exercise_1_4;
 mod exercise_1_5;
+mod exercise_1_6;
 
 fn main() {
     println!("1.1 contains_duplicates(\"abcdef\") -> {}", exercise_1_1::contains_duplicates("abcdef"));
@@ -30,5 +31,9 @@ fn main() {
     println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"palex\", \"pale\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("palex", "pale"));
     println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"pale\", \"bale\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("pale", "bale"));
     println!("1.5 is_levenshtein_distance_equals_to_0_or_1(\"pale\", \"bake\") -> {}", exercise_1_5::is_levenshtein_distance_equals_to_0_or_1("pale", "bake"));
+    println!();
+
+    println!("1.6 pack(\"abc\") -> {}", exercise_1_6::pack("abc"));
+    println!("1.6 pack(\"aabcccccaaa\") -> {}", exercise_1_6::pack("aabcccccaaa"));
     println!();
 }
