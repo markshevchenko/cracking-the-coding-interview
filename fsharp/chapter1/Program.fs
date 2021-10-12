@@ -1,16 +1,12 @@
 ﻿open System
+open Exercise_1_1
 
 // 1.1
-let containsDublicates s =
-    s |> Seq.sort
-      |> Seq.pairwise
-      |> Seq.exists (fun pair -> fst pair = snd pair)
-
 [<EntryPoint>]
 let main argv =
-    // 1.1
-    assert not (containsDublicates "")
-    assert not (containsDublicates "abcdef")
-    assert containsDublicates "foo"
+    printfn "1.1 containsDuplicates \"\" -> %b" (containsDuplicates "")
+    printfn "1.1 containsDuplicates \"abcdef\" -> %b" (containsDuplicates "abcdef")
+    printfn "1.1 containsDuplicates \"foo\" -> %b" (containsDuplicates "foo")
+    printfn ""
     
     0
