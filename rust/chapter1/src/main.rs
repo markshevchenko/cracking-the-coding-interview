@@ -6,6 +6,7 @@ mod exercise_1_5;
 mod exercise_1_6;
 mod exercise_1_7;
 mod exercise_1_8;
+mod exercise_1_9;
 
 fn main() {
     println!("1.1 contains_duplicates(\"abcdef\") -> {}", exercise_1_1::contains_duplicates("abcdef"));
@@ -92,6 +93,9 @@ fn main() {
         println!("  {:?}", v[2]);
         println!("  {:?}", v[3]);
         println!("  {:?}", v[4]);
-        println!("1.8 after zero_rows_and_columns_with_zero:");
+        println!();
     }
+
+    println!("1.9 is_rotation(\"erbottlewat\", \"waterbottle\") -> {}", exercise_1_9::is_rotation("erbottlewat", "waterbottle"));
+    println!();
 }
