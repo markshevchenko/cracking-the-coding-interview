@@ -2,6 +2,7 @@
 open Exercise_1_2
 open Exercise_1_3
 open Exercise_1_4
+open Exercise_1_5
 
 // 1.1
 [<EntryPoint>]
@@ -26,4 +27,9 @@ let main argv =
     printfn "1.4 isPalindromePermutation \"fffggh\" -> %b" (isPalindromePermutation "fffggh")
     printfn ""
     
+    printfn "1.5 isLevenshteinDistance0Or1 \"pale\" \"ple\" -> %b" (isLevenshteinDistance0Or1 "pale" "ple")
+    printfn "1.5 isLevenshteinDistance0Or1 \"palex\" \"pale\" -> %b" (isLevenshteinDistance0Or1 "palex" "pale")
+    printfn "1.5 isLevenshteinDistance0Or1 \"pale\" \"bale\" -> %b" (isLevenshteinDistance0Or1 "pale" "bale")
+    printfn "1.5 isLevenshteinDistance0Or1 \"pale\" \"bake\" -> %b" (isLevenshteinDistance0Or1 "pale" "bake")
+    printfn ""
     0
