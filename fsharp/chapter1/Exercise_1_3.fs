@@ -1,6 +1,6 @@
 ﻿module Exercise_1_3
 
-    
+
 let public replaceSpacebars (s: char array) length =
     let lastIndex = length - 1
     let mutable currentLastIndex = lastIndex
@@ -8,7 +8,7 @@ let public replaceSpacebars (s: char array) length =
     for i = lastIndex downto 0 do
         if s.[i] = ' '
         then
-            for j = currentLastIndex downto (i + 2) do
+            for j = currentLastIndex downto (i + 1) do
                 s.[j + 2] <- s.[j]
                 
             s.[i] <- '%'

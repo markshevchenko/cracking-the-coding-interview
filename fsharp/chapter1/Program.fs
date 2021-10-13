@@ -1,10 +1,13 @@
-﻿open Exercise_1_1
+﻿open System.Runtime.CompilerServices
+open Exercise_1_1
 open Exercise_1_2
 open Exercise_1_3
 open Exercise_1_4
 open Exercise_1_5
 
-// 1.1
+[<assembly:InternalsVisibleTo("chapter1_tests")>]
+do ()
+
 [<EntryPoint>]
 let main argv =
     printfn "1.1 containsDuplicates \"\" -> %b" (containsDuplicates "")
@@ -32,4 +35,5 @@ let main argv =
     printfn "1.5 isLevenshteinDistance0Or1 \"pale\" \"bale\" -> %b" (isLevenshteinDistance0Or1 "pale" "bale")
     printfn "1.5 isLevenshteinDistance0Or1 \"pale\" \"bake\" -> %b" (isLevenshteinDistance0Or1 "pale" "bake")
     printfn ""
+    
     0

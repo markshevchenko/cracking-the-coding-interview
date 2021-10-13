@@ -9,6 +9,10 @@
 
     <ItemGroup>
         <Compile Include="Exercise_1_1_tests.fs" />
+        <Compile Include="Exercise_1_2_tests.fs" />
+        <Compile Include="Exercise_1_3_tests.fs" />
+        <Compile Include="Exercise_1_4_tests.fs" />
+        <Compile Include="Exercise_1_5_tests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
