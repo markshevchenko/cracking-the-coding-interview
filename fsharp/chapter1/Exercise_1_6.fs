@@ -12,7 +12,7 @@ let internal appendCharAndCount (stringBuilder: StringBuilder) (c: char) (count:
 let internal rle (s: string) =
     let mutable count = 0
     let mutable prev = '\000'
-    let stringBuilder = new StringBuilder()
+    let stringBuilder = StringBuilder()
     
     for c in s do
         if count = 0 then

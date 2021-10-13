@@ -7,7 +7,7 @@ open Exercise_1_6
 
 [<Fact>]
 let ``appendCharAndCount - with empty string a 3 - returns a3`` () =
-    let stringBuilder = new StringBuilder()
+    let stringBuilder = StringBuilder()
     
     appendCharAndCount stringBuilder 'a' 3
     
