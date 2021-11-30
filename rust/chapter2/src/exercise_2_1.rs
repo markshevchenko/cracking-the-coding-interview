@@ -1,95 +1,37 @@
-#[derive(Debug)]
-enum Node {
-    Nil,
-    List(i32, Box<Node>),
-}
-
-#[derive(Debug)]
-struct List {
-    root: Node,
-}
-
-fn build_list(items: Vec<i32>) -> List {
-    let mut head = Node::Nil;
-
-    for item in items.iter().rev() {
-        head = Node::List(*item, Box::new(head))
-    }
-
-    List { root: head }
-}
-
-fn are_lists_equal(node1: &Node, node2: &Node) -> bool {
-    match (node1, node2) {
-        (Node::Nil, Node::Nil) =>
-            true,
-        (Node::List(a, tail1), Node::List(b, tail2)) =>
-            a == b && are_lists_equal(tail1.as_ref(), tail2.as_ref()),
-        (_, _) => false
-    }
-}
-
-impl PartialEq for List {
-    fn eq(&self, other: &Self) -> bool {
-        are_lists_equal(&self.root, &other.root)
-    }
-}
-
-#[test]
-fn build_list_with_empty_vector_returns_nil() {
-    let list = build_list(vec![]);
-
-    assert_eq!(List { root: Node::Nil }, list);
-}
-
-#[test]
-fn build_list_with_123_builds_list_123() {
-    let expected = List { root: Node::List(1, Box::new(
-        Node::List(2, Box::new(
-            Node::List(3, Box::new(Node::Nil))
-        ))
-    ))};
-
-    let list = build_list(vec![1, 2, 3]);
-
-    assert_eq!(expected, list);
-}
-
-fn find_before_mut(item: i32, node: &mut Node) -> &mut Node {
-    if let Node::List(_, tail) = node {
-        if let Node::List(next_item, next_tail) = tail.as_mut() {
-            if item == *next_item {
-                return node;
-            } else {
-                return find_before_mut(item, tail.as_mut())
-            }
-        }
-    }
-
-    &mut Node::Nil
-}
-
-
-
-fn remove_item(item: i32, node: &mut Node) {
-    match node {
-        Node::Nil => (),
-        List
-    }
-}
-
-fn remove_duplicates(list: &mut Node) {
-    match node {
-        List(value, tail) => remove_duplicates(value, tail.as_mut_ref())
-    }
-
-    if node == Node::Nil {
-        return;
-    }
-
-
-
-}
+// fn find_before(item: i32, List: list) -> Node {
+//     match node {
+//         Node::List(_, tail) => match tail.as_ref() {
+//             Node::List(next_item, next_tail) => if item == *next_item {
+//                 return node;
+//             } else {
+//                 return find_before(item, next_tail.as_ref());
+//             },
+//             _ => &Node::Nil,
+//         },
+//         _ => &Node::Nil,
+//     }
+// }
+//
+// fn remove_after(node: &mut Node) {
+//     match node {
+//         Node::List(_, tail) => match tail.as_ref() {
+//             Node::List(_, next_tail) =>
+//         }
+//     }
+// }
+//
+// #[test]
+// fn find_before_when_2nd_item_found_returns_1st_item() {
+//     let list = build_list(vec![1, 2, 3]);
+//
+//     let node = find_before(2, &list.root);
+//
+//     if let Node::List(actual, _) = node {
+//         assert_eq!(1, *actual);
+//     } else {
+//         assert!(false);
+//     }
+// }
 
 // pub fn remove_duplicates(head: &mut Option<Box<ListNode>>) {
 //     let mut start = head;
