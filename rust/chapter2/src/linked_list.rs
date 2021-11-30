@@ -1,12 +1,15 @@
+#[derive(Debug)]
 pub struct List {
     head: Link,
 }
 
+#[derive(Debug)]
 enum Link {
     Empty,
     Tail(Box<Node>),
 }
 
+#[derive(Debug)]
 struct Node {
     value: i32,
     next: Link,
@@ -28,29 +31,73 @@ impl List {
         self.head = Link::Tail(new_node);
     }
 
-    pub fn new1(value1: i32) -> Self {
+    pub fn new_vec(values: &Vec<i32>) -> Self {
         let mut result = List::new();
-        result.push(value1);
+
+        for value in values.iter().rev() {
+            result.push(*value);
+        }
 
         result
     }
+}
 
-    pub fn new2(value1: i32, value2: i32) -> Self {
-        let mut result = List::new();
-        result.push(value1);
-        result.push(value2);
+#[test]
+fn new_when_called_create_list_with_empty() {
+    let actual = List::new();
+    let expected = List { head: Link::Empty };
 
-        result
-    }
+    assert_eq!(expected, actual);
+}
 
-    pub fn new3(value1: i32, value2: i32, value3: i32) -> Self {
-        let mut result = List::new();
-        result.push(value1);
-        result.push(value2);
-        result.push(value3);
+#[test]
+fn push_with_empty_and_1_returns_1() {
+    let mut actual = List::new();
+    actual.push(1);
+    let expected = List { head: Link::Tail(Box::new(Node {
+        value: 1,
+        next: Link::Empty,
+    }))};
 
-        result
-    }
+    assert_eq!(expected, actual);
+}
+
+#[test]
+fn push_with_23_and_1_returns_123() {
+    let expected = List { head: Link::Tail(Box::new(Node {
+        value: 1,
+        next: Link::Tail(Box::new(Node {
+            value: 2,
+            next: Link::Tail(Box::new(Node {
+                value: 3,
+                next: Link::Empty,
+            })),
+        })),
+    }))};
+    let mut actual = List::new();
+    actual.push(3);
+    actual.push(2);
+
+    actual.push(1);
+
+    assert_eq!(expected, actual);
+}
+
+#[test]
+fn new_vec_with_123_returns_123() {
+    let expected = List { head: Link::Tail(Box::new(Node {
+        value: 1,
+        next: Link::Tail(Box::new(Node {
+            value: 2,
+            next: Link::Tail(Box::new(Node {
+                value: 3,
+                next: Link::Empty,
+            })),
+        })),
+    }))};
+    let actual = List::new_vec(&vec![1, 2, 3]);
+
+    assert_eq!(expected, actual);
 }
 
 fn are_links_equal(link1: &Link, link2: &Link) -> bool {
