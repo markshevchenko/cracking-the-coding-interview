@@ -9,32 +9,32 @@ use std::collections::HashSet;
 use super::linked_list::{List};
 
 pub fn remove_duplicates(list: &mut List) {
-    let mut current = &mut list.head;
-    let mut already = HashSet::new();
-
-    if let Some(first_node) = current {
-        already.insert(first_node.value);
-    } else {
-        return;
-    }
-
-    while let Some(current_node) = current {
-        let mut do_move = true;
-        current_node.next = match current_node.next.take() {
-            Some(next_node) if already.contains(&next_node.value) => {
-                do_move = false;
-                next_node.next
-            },
-            Some(next_node) => {
-                already.insert(next_node.value);
-
-                Some(next_node)
-            },
-            None => None,
+    let mut current = match list.head.as_mut() {
+        Some(current) => current,
+        None => {
+            return;
+        }
+    };
+    let mut seen = HashSet::new();
+    seen.insert(current.value);
+    loop {
+        let do_move = match current.next.take() {
+            Some(next) if seen.insert(next.value) => {
+                current.next = Some(next);
+                true
+            }
+            Some(next) => {
+                current.next = next.next;
+                false
+            }
+            None => true,
         };
 
         if do_move {
-            current = &mut current_node.next;
+            current = match current.next.as_mut().take() {
+                Some(current) => current,
+                None => return,
+            };
         }
     }
 }

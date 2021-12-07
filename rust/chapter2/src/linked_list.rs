@@ -117,3 +117,26 @@ impl PartialEq for List {
         are_links_equal(&self.head, &other.head)
     }
 }
+
+use std::fmt;
+
+impl fmt::Display for List {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "[")?;
+
+        let mut current = &self.head;
+        if let Some(current_node) = current {
+            write!(f, "{}", current_node.value)?;
+
+            current = &current_node.next;
+        }
+
+        while let Some(current_node) = current {
+            write!(f, ", {}", current_node.value)?;
+
+            current = &current_node.next;
+        }
+
+        write!(f, "]")
+    }
+}
