@@ -1,4 +1,5 @@
 mod exercise_2_1;
+mod exercise_2_2;
 mod linked_list;
 
 fn main() {
