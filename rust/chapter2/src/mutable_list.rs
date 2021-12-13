@@ -16,15 +16,6 @@ impl List {
         List { head: None }
     }
 
-    pub fn push(&mut self, value: i32) {
-        let new_node = Box::new(Node {
-            value,
-            next: mem::replace(&mut self.head, None),
-        });
-
-        self.head = Some(new_node);
-    }
-
     pub fn from_vec(values: &Vec<i32>) -> Self {
         let mut result = List::new();
 
@@ -33,6 +24,15 @@ impl List {
         }
 
         result
+    }
+
+    pub fn push(&mut self, value: i32) {
+        let new_node = Box::new(Node {
+            value,
+            next: mem::replace(&mut self.head, None),
+        });
+
+        self.head = Some(new_node);
     }
 }
 
