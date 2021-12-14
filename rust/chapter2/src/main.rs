@@ -33,4 +33,13 @@ fn main() {
 
         println!("2.2 find_kth_from_end({}, 2) is {:?}", &list, found_element);
     }
+    {
+        // Exercise 2.3
+        let mut list = mutable_list::List::from_vec(&vec![1, 2, 3, 4, 5, 6, 7, 8]);
+        println!("2.3 List before remove_from_middle is {}", list);
+
+        exercise_2_3::remove_from_middle(&mut list, 4);
+
+        println!("    List after remove_from_middle with 4 as element to remove: {}", list);
+    }
 }
