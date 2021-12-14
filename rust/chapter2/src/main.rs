@@ -42,4 +42,13 @@ fn main() {
 
         println!("    List after remove_from_middle with 4 as element to remove: {}", list);
     }
+    {
+        // Exercise 2.4
+        let before = immutable_list::List::from_vec(&vec![3, 2, 1, 10, 5, 8, 5]);
+        println!("2.4 List before partial_sort: {}", before);
+
+        let after = exercise_2_4::partial_sort(&before, 5);
+
+        println!("    List after partial_sort with separator 5: {}", after);
+    }
 }
