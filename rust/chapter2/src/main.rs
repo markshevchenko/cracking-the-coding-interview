@@ -1,8 +1,11 @@
-use crate::exercise_2_2::find_kth_from_end;
-
 mod exercise_2_1;
 mod exercise_2_1a;
 mod exercise_2_2;
+mod exercise_2_3;
+mod exercise_2_4;
+mod exercise_2_5;
+mod exercise_2_5a;
+mod exercise_2_6;
 mod mutable_list;
 mod immutable_list;
 
@@ -26,7 +29,8 @@ fn main() {
     {
         // Exercise 2.2
         let list = immutable_list::List::from_vec(&vec![1, 2, 3, 4, 5, 6]);
+        let found_element = exercise_2_2::find_kth_from_end(&list, 2);
 
-        println!("2.2 find_kth_from_end({}, 2) is {:?}", &list, find_kth_from_end(&list, 2));
+        println!("2.2 find_kth_from_end({}, 2) is {:?}", &list, found_element);
     }
 }
