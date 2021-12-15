@@ -16,9 +16,9 @@ fn main() {
         // Exercise 2.1
         let mut list = mutable_list::List::from_vec(&vec![1, 2, 1, 3, 4, 1, 3, 5, 6]);
 
-        println!("2.1 List before remove_duplicates: {}", list);
+        println!("2.1  List before remove_duplicates: {}", list);
         exercise_2_1::remove_duplicates(&mut list);
-        println!("    List after remove_duplicates: {}", list);
+        println!("     List after remove_duplicates: {}", list);
     }
     {
         // Exercise 2.1a
@@ -33,34 +33,44 @@ fn main() {
         let list = immutable_list::List::from_vec(&vec![1, 2, 3, 4, 5, 6]);
         let found_element = exercise_2_2::find_kth_from_end(&list, 2);
 
-        println!("2.2 find_kth_from_end({}, 2) is {:?}", &list, found_element);
+        println!("2.2  find_kth_from_end({}, 2) is {:?}", &list, found_element);
     }
     {
         // Exercise 2.3
         let mut list = mutable_list::List::from_vec(&vec![1, 2, 3, 4, 5, 6, 7, 8]);
-        println!("2.3 List before remove_from_middle is {}", list);
+        println!("2.3  List before remove_from_middle is {}", list);
 
         exercise_2_3::remove_from_middle(&mut list, 4);
 
-        println!("    List after remove_from_middle with 4 as element to remove: {}", list);
+        println!("     List after remove_from_middle with 4 as element to remove: {}", list);
     }
     {
         // Exercise 2.4
         let before = immutable_list::List::from_vec(&vec![3, 2, 1, 10, 5, 8, 5]);
-        println!("2.4 List before partial_sort: {}", before);
+        println!("2.4  List before partial_sort: {}", before);
 
         let after = exercise_2_4::partial_sort(&before, 5);
 
-        println!("    List after partial_sort with separator 5: {}", after);
+        println!("     List after partial_sort with separator 5: {}", after);
     }
     {
         // Exercise 2.5
         let a = immutable_list::List::from_vec(&vec![7, 1, 6]);
         let b = immutable_list::List::from_vec(&vec![5, 9, 2]);
-        println!("2.5 List a: {}", a);
-        println!("    List b: {}", b);
+        println!("2.5  List a: {}", a);
+        println!("     List b: {}", b);
 
         let sum = exercise_2_5::sum(&a, &b);
-        println!("    sum(&a, &b): {}", sum);
+        println!("     sum(&a, &b): {}", sum);
+    }
+    {
+        // Exercise 2.5a
+        let a = mutable_list::List::from_vec(&vec![6, 1, 7]);
+        let b = mutable_list::List::from_vec(&vec![2, 9, 5]);
+        println!("2.5a List a: {}", a);
+        println!("     List b: {}", b);
+
+        let sum = exercise_2_5a::sum(a, b);
+        println!("     sum(a, b): {}", sum);
     }
 }
