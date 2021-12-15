@@ -53,4 +53,14 @@ fn main() {
 
         println!("    List after partial_sort with separator 5: {}", after);
     }
+    {
+        // Exercise 2.5
+        let a = immutable_list::List::from_vec(&vec![7, 1, 6]);
+        let b = immutable_list::List::from_vec(&vec![5, 9, 2]);
+        println!("2.5 List a: {}", a);
+        println!("    List b: {}", b);
+
+        let sum = exercise_2_5::sum(&a, &b);
+        println!("    sum(&a, &b): {}", sum);
+    }
 }
