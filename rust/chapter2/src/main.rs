@@ -6,6 +6,8 @@ mod exercise_2_4;
 mod exercise_2_5;
 mod exercise_2_5a;
 mod exercise_2_6;
+mod exercise_2_7;
+mod exercise_2_8;
 mod mutable_list;
 mod immutable_list;
 
