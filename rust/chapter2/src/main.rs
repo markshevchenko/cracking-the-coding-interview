@@ -73,4 +73,12 @@ fn main() {
         let sum = exercise_2_5a::sum(a, b);
         println!("     sum(a, b): {}", sum);
     }
+    {
+        // Exercise 2.6
+        let a = immutable_list::List::from_vec(&vec![1, 2, 3, 4, 3, 2, 1]);
+        println!("2.6  is_palindrome({}): {}", a, exercise_2_6::is_palindrome(&a));
+
+        let b = immutable_list::List::from_vec(&vec![1, 2, 3, 4, 3, 1, 2]);
+        println!("     is_palindrome({}): {}", b, exercise_2_6::is_palindrome(&b));
+    }
 }
