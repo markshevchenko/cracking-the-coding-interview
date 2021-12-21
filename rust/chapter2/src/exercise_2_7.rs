@@ -8,12 +8,7 @@
  */
 
 use std::rc::Rc;
-
-#[derive(PartialEq, Debug)]
-pub enum List {
-    Nil,
-    Cons(i32, Rc<List>)
-}
+use super::complex_list::{List};
 
 fn is_in_list(node: &Rc<List>, list: &Rc<List>) -> bool {
     if Rc::<List>::ptr_eq(node, list) {
