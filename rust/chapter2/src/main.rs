@@ -1,3 +1,5 @@
+use crate::exercise_2_7::has_common_node;
+
 mod exercise_2_1;
 mod exercise_2_1a;
 mod exercise_2_2;
@@ -80,5 +82,56 @@ fn main() {
 
         let b = immutable_list::List::from_vec(&vec![1, 2, 3, 4, 3, 1, 2]);
         println!("     is_palindrome({}): {}", b, exercise_2_6::is_palindrome(&b));
+    }
+    {
+        // Exercise 2.7
+        use std::rc::Rc;
+
+        let tail = Rc::new(
+            exercise_2_7::List::Cons(3, Rc::new(
+                exercise_2_7::List::Cons(2, Rc::new(
+                    exercise_2_7::List::Cons(1, Rc::new(exercise_2_7::List::Nil))
+                ))
+            ))
+        );
+
+        let list1 = Rc::new(
+            exercise_2_7::List::Cons(5, Rc::new(
+                exercise_2_7::List::Cons(4, tail.clone())
+            ))
+        );
+
+        let list2 = Rc::new(
+            exercise_2_7::List::Cons(6, Rc::new(
+                exercise_2_7::List::Cons(7, tail)
+            ))
+        );
+
+        println!("2.7  list1 is {}", list1);
+        println!("     list2 is {}", list2);
+        println!("     has_common_node(&list1, &list2) is {}", has_common_node(&list1, &list2));
+
+        use std::fmt;
+
+        impl fmt::Display for exercise_2_7::List {
+            fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+                write!(f, "[")?;
+
+                let mut current = self;
+                if let exercise_2_7::List::Cons(value, next) = current {
+                    write!(f, "{}", value)?;
+
+                    current = next;
+                }
+
+                while let exercise_2_7::List::Cons(value, next) = current {
+                    write!(f, ", {}", value)?;
+
+                    current = next;
+                }
+
+                write!(f, "]")
+            }
+        }
     }
 }
